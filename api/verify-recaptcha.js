@@ -1,11 +1,11 @@
-import { post } from 'axios';
+const axios = require('axios');
 
 export default async (req, res) => {
   const token = req.body.token;
   const secretKey = process.env.RECAPTCHA_SECRET_KEY; 
   
   try {
-    const googleResponse = await post('https://www.google.com/recaptcha/api/siteverify', null, {
+    const googleResponse = await axios.post('https://www.google.com/recaptcha/api/siteverify', null, {
       params: {
         secret: secretKey,
         response: token
