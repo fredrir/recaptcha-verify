@@ -9,7 +9,7 @@ export default async (req, res) => {
     secret: secretKey,
     response: token
   });
-
+// :)
   const options = {
     hostname: 'www.google.com',
     port: 443,
@@ -24,12 +24,10 @@ export default async (req, res) => {
   const request = https.request(options, (resp) => {
     let data = '';
 
-    // A chunk of data has been received.
     resp.on('data', (chunk) => {
       data += chunk;
     });
 
-    // The whole response has been received.
     resp.on('end', () => {
       try {
         const parsedData = JSON.parse(data);
@@ -50,7 +48,6 @@ export default async (req, res) => {
     res.status(500).send('Server Error');
   });
 
-  // Write data to request body
   request.write(postData);
   request.end();
 };
