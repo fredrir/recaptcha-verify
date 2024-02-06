@@ -9,7 +9,7 @@ export default async (req, res) => {
     secret: secretKey,
     response: token
   });
-// :)
+// :).
   const options = {
     hostname: 'www.google.com',
     port: 443,
